@@ -39,12 +39,12 @@ class CurrencyManager:
 
         self.price = current_price
         self.last_updated_utc: datetime = datetime.strptime(resp.get("modifiedAt"), "%Y-%m-%dT%H:%M:%S.000+00:00")
-        self.last_updated_kst = self.last_updated_utc.astimezone(CONST.KST) + timedelta(hours=9)
+        self.last_updated_kst = self.last_updated_utc.astimezone(CONST.KST)
         self.direction = resp.get("change")
 
     def get_currency_detail_for_message(self):
         self.update_currency_detail()
-        r = f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} | " \
+        r = f"{datetime.now().astimezone(CONST.KST).strftime('%Y-%m-%d %H:%M:%S')} | " \
                f"{self.last_updated_kst.strftime('%Y-%m-%d %H:%M:%S')} | " \
                f"{self.currency}: {self.price} {self.direction_emoji}"
         self.logger.info(f"detail for message: {r}")
