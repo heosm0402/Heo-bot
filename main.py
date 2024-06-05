@@ -34,11 +34,8 @@ def main(args):
     logger.info(f"seconded interval: {interval}s")
 
     while 1:
-        if datetime.now() > now + timedelta(seconds=interval):
-            send_message(CONST.SLACK_CURRENCY_CHANNEL_NAME, manager.get_currency_detail_for_message())
-            now = datetime.now()
-        else:
-            time.sleep(5)
+        send_message(CONST.SLACK_CURRENCY_CHANNEL_NAME, manager.get_currency_detail_for_message())
+        time.sleep(interval)
 
 
 if __name__ == '__main__':
