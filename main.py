@@ -12,6 +12,8 @@ from CurrencyManager import CurrencyManager
 import CONSTANT as CONST
 from utils import return_interval_to_seconds
 
+os.environ["TZ"] = "Asia/Seoul"
+
 
 def send_message(channel, msg):
     logger = logging.getLogger("main")

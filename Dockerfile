@@ -13,4 +13,4 @@ COPY . .
 
 ENTRYPOINT ["python", "main.py"]
 
-CMD ["-c", "JPY", "-i", "3s"]
+CMD ["-c", "JPY", "-i", "30m"]
