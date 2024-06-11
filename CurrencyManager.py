@@ -22,7 +22,7 @@ class CurrencyManager:
         return resp.get("basePrice")
 
     def get_currency_detail(self):
-        return requests.get(f"https://quotation-api-cdn.dunamu.com/v1/forex/recent?codes=FRX.KRW{self.currency}").json()[0]
+        return requests.get(f"https://quotation-api-cdn.dunamu.com/v1/forex/recent?codes=FRX.{self.currency}").json()[0]
 
     def update_currency_detail(self):
         resp = self.get_currency_detail()

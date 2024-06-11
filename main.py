@@ -31,7 +31,6 @@ def send_message(channel, msg):
 def main(args):
     logger = logging.getLogger("main")
     manager = CurrencyManager(args.currency)
-    now = datetime.now()
     interval = return_interval_to_seconds(args.interval)
     logger.info(f"seconded interval: {interval}s")
 
@@ -45,5 +44,4 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("-c", dest="currency", required=True)
     parser.add_argument("-i", dest="interval", required=False, default="60")
-    args = parser.parse_args()
-    main(args)
+    main(parser.parse_args())

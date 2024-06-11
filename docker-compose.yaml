@@ -1,9 +1,39 @@
 version: "3.0"
 
 services:
-  currency:
+  krwjpy:
+    container_name: currency_KRWJPY
     build:
       context: .
       dockerfile: Dockerfile
     env_file:
       - ./.env
+    command:
+      - -c
+      - KRWJPY
+      - -i
+      - 30m
+  jpyusd:
+    container_name: currency_JPYUSD
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - ./.env
+    command:
+      - -c
+      - JPYUSD
+      - -i
+      - 30m
+  krwusd:
+    container_name: currency_KRWUSD
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - ./.env
+    command:
+      - -c
+      - KRWUSD
+      - -i
+      - 30m
